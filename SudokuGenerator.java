@@ -1,9 +1,7 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class SudokuGenerator {
 
-    // 9x9 Sudoku board (2D array)
     private int[][] board = new int[9][9];
 
     public static void main(String[] args) {
@@ -12,31 +10,33 @@ public class SudokuGenerator {
         sudoku.printBoard();
     }
 
-    // Method to generate Sudoku board
     public void generateBoard() {
 
-        // Create base numbers 1–9 using ArrayList
         ArrayList<Integer> base = new ArrayList<>();
+
         for (int i = 1; i <= 9; i++) {
             base.add(i);
         }
 
-        // Shuffle for randomness
-        Collections.shuffle(base);
+        for (int i = base.size() - 1; i > 0; i--) {
+            int j = (int)(Math.random() * (i + 1));
 
-        // Fill board using pattern
+            int temp = base.get(i);
+            base.set(i, base.get(j));
+            base.set(j, temp);
+        }
+
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
 
-                // Pattern formula
                 int value = base.get((col + (row * 3) + (row / 3)) % 9);
                 board[row][col] = value;
             }
         }
     }
 
-    // Method to print board neatly
     public void printBoard() {
+
         System.out.println("Solved Sudoku Board:\n");
 
         for (int i = 0; i < 9; i++) {
