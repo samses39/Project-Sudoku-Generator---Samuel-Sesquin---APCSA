@@ -31,6 +31,6 @@ This method makes it so that:
 - The board is always a correct Sudoku solution.
 
 Files included:
-- SudokuGenerator.java → Main program file
-- DesignDocument.pdf → Explanation of program design
-- README.md → Project overview and instructions
+- SudokuGenerator.java in Main program file
+- DesignDocument.pdf in Explanation of program design
+- README.md in Project overview and instructions
